@@ -1,0 +1,11 @@
+<hare-progress-bar></hare-progress-bar>
+
+<hare-vertical-layout-1></hare-vertical-layout-1>
+
+<button mat-icon-button class="theme-options-button" (click)="toggleSidebarOpen('themeOptionsPanel')">
+  <mat-icon>settings</mat-icon>
+</button>
+
+<hare-sidebar name="themeOptionsPanel" class="theme-options-sidebar" position="right" [invisibleOverlay]="true">
+  <hare-theme-options [activeTheme]="activeTheme"(themeChanged)="onThemeChanged($event)"></hare-theme-options>
+</hare-sidebar>

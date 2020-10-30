@@ -1,0 +1,18 @@
+<div class="theme-options-panel mat-elevation-z12" [perfectScrollbar]>
+
+  <form [formGroup]="form">
+    <div class="group">
+      <h2>Color themes </h2>
+
+      <mat-radio-group fxLayout="column" fxLayoutAlign="start start" formControlName="theme">
+        <mat-radio-button value="theme-teal-light">Teal Light</mat-radio-button>
+        <mat-radio-button value="theme-blue-light">Blue Light</mat-radio-button>
+        <mat-radio-button value="theme-yellow-light">Yellow Dark</mat-radio-button>
+
+        <mat-radio-button value="theme-blue-gray-dark">Blue-Gray Dark</mat-radio-button>
+        <mat-radio-button value="theme-pink-dark">Pink Dark</mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+  </form>
+</div>

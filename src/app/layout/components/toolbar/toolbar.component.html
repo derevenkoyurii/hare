@@ -1,0 +1,13 @@
+<mat-toolbar class="mat-elevation-z2">
+  <div fxFlex="grow" fxFill fxLayout="row" fxLayoutAlign="start center">
+
+    <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+
+      <button *ngIf="(navigation$ | async).position === 'left'" mat-icon-button class="navbar-toggle-button"
+        (click)="toggleSidebarOpen('navbar')">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+  </div>
+</mat-toolbar>
