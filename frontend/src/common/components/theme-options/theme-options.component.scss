@@ -1,0 +1,63 @@
+@import 'src/common/scss/common';
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+hare-theme-options {
+  display: flex;
+  overflow: hidden;
+
+  .theme-options-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: 10px 6px 6px 6px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    form {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+
+      .mat-radio-button {
+        margin-bottom: 4px;
+      }
+
+      .group {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        position: relative;
+        border-radius: 2px;
+        padding: 18px 8px 4px 8px;
+
+        h2 {
+          position: absolute;
+          top: -11px;
+          left: 8px;
+          margin: 0;
+          padding: 0 8px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        h3 {
+          font-size: 14px;
+          font-weight: 600;
+          padding: 0;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

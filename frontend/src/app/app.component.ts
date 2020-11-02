@@ -1,0 +1,61 @@
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Platform } from '@angular/cdk/platform';
+import { Store } from '@ngrx/store';
+
+import { CommonSidebarService, CommonSplashScreenService } from 'src/common';
+import { RootStoreState } from 'src/app/core';
+
+@Component({
+  selector: 'hare-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class AppComponent implements OnInit {
+  themes: string[] = [
+    'theme-teal-light',
+    'theme-blue-light',
+    'theme-yellow-light',
+
+    'theme-blue-gray-dark',
+    'theme-pink-dark'
+  ];
+  activeTheme = this.themes[4];
+
+  constructor(
+    private _store: Store<RootStoreState>,
+    private _splashScreenService: CommonSplashScreenService,
+    private _platform: Platform,
+    private _sidebarService: CommonSidebarService
+  ) {}
+
+  ngOnInit(): void {
+    this.setThemeClass(this.activeTheme);
+    this.addIsMobileClass();
+  }
+
+  addIsMobileClass(): void {
+    if (this._platform.ANDROID || this._platform.IOS) {
+      document.body.classList.add('is-mobile');
+    }
+  }
+
+  setThemeClass(themeClassName: string): void {
+    // delete prev
+    [].forEach.call(document.body.classList, (className) => {
+      if (className.startsWith('theme-')) {
+        document.body.classList.remove(className);
+      }
+    });
+
+    document.body.classList.add(themeClassName);
+  }
+
+  toggleSidebarOpen(key): void {
+    this._sidebarService.getSidebar(key).toggleOpen();
+  }
+
+  onThemeChanged(theme): void {
+    this.setThemeClass(theme);
+  }
+}
