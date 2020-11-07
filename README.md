@@ -1,1 +1,1 @@
-# ng-hare
+# hare
